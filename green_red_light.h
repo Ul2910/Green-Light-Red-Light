@@ -89,11 +89,11 @@ void    lose_animation(t_game *game);
 void    win_animation(t_game *game);
 
 
-void    stop_game(int step_counter, int curr_position, int round_time, t_game *game);
+void    stop_game(t_game *game);
 void    init_t_stop_game(t_game *game);
 int		stop_game_render_new_frame(t_game *game);
 int		stop_game_check_result(t_game *game);
 void	lose_game(void);
-void	start_random_minigame(void);
+void	start_random_minigame(t_game *game);
 
 #endif

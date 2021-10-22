@@ -5,7 +5,7 @@ int	main(void)
 	t_game	game;
 
 	fill_struct(&game);
-	
+	srand(time(NULL));
 	game.mlx = mlx_init();
 	game.mlx_win = mlx_new_window(game.mlx, 1280, 720, "Green Light - Red Light");
 	create_imgs(&game);
@@ -57,9 +57,7 @@ void	print_frame(t_game *game, int time_only)
 	print_meters(game->meters_left, game);
 	game->digits.time_x = 1130;
 	game->digits.meters_x = 200;
-	if (game->mini_only == 1) {
-		game->stop_game.triger_zone_len = 800 / 100 * (100 - game->tmp_meters * 100 / 2 * 15);
-		stop_game(21, 21, 5, game);
-	}
+	if (game->mini_only == 1)
+		stop_game(game);
 
 }
