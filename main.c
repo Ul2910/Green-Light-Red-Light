@@ -3,12 +3,14 @@
 int	main(void)
 {
 	t_game	game;
-	
+
 	fill_struct(&game);
+	
 	game.mlx = mlx_init();
 	game.mlx_win = mlx_new_window(game.mlx, 1280, 720, "Green Light - Red Light");
 	create_imgs(&game);
 	create_digits(&game);
+	init_t_stop_game(&game);
 	print_frame(&game, 0);
 	mlx_loop_hook(game.mlx, animation_time, &game);
 	mlx_key_hook(game.mlx_win, key_hook, &game);
@@ -55,4 +57,9 @@ void	print_frame(t_game *game, int time_only)
 	print_meters(game->meters_left, game);
 	game->digits.time_x = 1130;
 	game->digits.meters_x = 200;
+	if (game->mini_only == 1) {
+		game->stop_game.triger_zone_len = 800 / 100 * (100 - game->tmp_meters * 100 / 2 * 15);
+		stop_game(21, 21, 5, game);
+	}
+
 }

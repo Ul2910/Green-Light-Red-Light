@@ -70,6 +70,8 @@ typedef struct s_game
 	int			plant1_x;
 	int			plant2_x;
 	int			plant3_x;
+	int			mini_only;
+	t_stop_game stop_game;
 }
 t_game;
 
@@ -88,10 +90,10 @@ void    win_animation(t_game *game);
 
 
 void    stop_game(int step_counter, int curr_position, int round_time, t_game *game);
-void    init_t_stop_game(t_stop_game* vars, t_game *game);
-void	stop_game_render_new_frame(t_game *game, t_stop_game *vars);
-int		stop_game_check_result(int keycode, t_stop_game *vars);
+void    init_t_stop_game(t_game *game);
+int		stop_game_render_new_frame(t_game *game);
+int		stop_game_check_result(t_game *game);
 void	lose_game(void);
-void	start_random_nimigame(void);
+void	start_random_minigame(void);
 
 #endif

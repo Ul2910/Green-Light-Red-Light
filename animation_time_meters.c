@@ -5,11 +5,12 @@ int	animation_time(t_game *game)
 	game->seconds = time(NULL);
 	game->time_left = game->finish_time - game->seconds;
 	print_frame(game, 1);
-	//print_time(game->time_left, game);
+	// print_time(game->time_left, game);
 	game->digits.time_x = 1130;
 	
 	if (game->time_left == 118)
-		stop_game(21, 21, 5, game);
+		game->mini_only = 1;
+		
 	
     if (game->time_left <= 0 && game->meters_left > 0)
         lose_animation(game);

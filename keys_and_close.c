@@ -5,6 +5,10 @@ int	key_hook(int key, t_game *game)
 	//printf("%i\n", key);
 	if (key == 53)
 		win_close(53, game);
+	if (game->mini_only == 1) {
+		if (key == 49)
+			stop_game_check_result(game);	
+	}
 	else if ((key == 123 && game->prev_key == 124) ||
 			 (key == 124 && game->prev_key == 123) ||
 			 (key == 123 && game->prev_key == -100) ||
