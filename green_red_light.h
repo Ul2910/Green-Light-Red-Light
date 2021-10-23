@@ -34,6 +34,7 @@ typedef struct s_balance_game
     void*   right_img;
 	void*	border_img;
 	bool	lock;
+	int		result;
 }
 t_balance_game;
 

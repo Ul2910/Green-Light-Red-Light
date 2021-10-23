@@ -1,6 +1,6 @@
 NAME	= green_light-red_light
 
-SRCS	= main.c helpers.c keys_and_close.c create_img_digits.c animation_time_meters.c lose_win.c al.c
+SRCS	= main.c helpers.c keys_and_close.c create_img_digits.c animation_time_meters.c lose_win.c al.c balance_game.c
 
 OBJS	= ${SRCS:.c=.o}
 
