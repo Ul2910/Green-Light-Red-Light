@@ -1,11 +1,9 @@
 #ifndef GREEN_RED_LIGHT_H
-
 # define GREEN_RED_LIGHT_H
 
 # include <stdbool.h> // typedef bool
 # include <stdlib.h> // exit
 # include <stdio.h> // printf
-# include <unistd.h> // sleep
 # include <time.h> // time
 # include <mlx.h>
 
@@ -77,33 +75,39 @@ t_digits;
 
 typedef struct s_game
 {
-    int         meters_left;
-    int         tmp_meters;
-    bool        is_mini;
-    int         time_left;
-	void	    *mlx;
-	void	    *mlx_win;
-	t_img       img;
-	t_digits    digits;
-	time_t		seconds;
-	time_t		finish_time;
-	int			prev_key;
-	
-	int			bottom_x;
-	int			plant1_x;
-	int			plant2_x;
-	int			plant3_x;
-	int			ruby_x;
-	int			ruby_y;
-	int			mini_only;
-	t_stop_game stop_game;
-	t_balance_game balance_game;
+    int         	meters_left;
+    int         	tmp_meters;
+    int         	time_left;
+	void	    	*mlx;
+	void	    	*mlx_win;
+	t_img       	img;
+	t_digits    	digits;
+	time_t			seconds;
+	time_t			finish_time;
+	int				prev_key;
+	int				bottom_x;
+	int				plant1_x;
+	int				plant2_x;
+	int				plant3_x;
+	int				plant1_1_x;
+	int				plant2_2_x;
+	int				plant2_2_2_x;
+	int				plant3_3_x;
+	int				plant3_3_3_x;
+	int				plant3_3_3_3_x;
+	int				ruby_x;
+	int				ruby_y;
+	int				mini_only;
+	int				end_or_start;
+	t_stop_game 	stop_game;
+	t_balance_game	balance_game;
 }
 t_game;
 
 void	create_imgs(t_game *game);
 void	create_digits(t_game *game);
 void	print_frame(t_game *game, int time_only);
+int		print_start(t_game *game);
 int     key_hook(int key, t_game *game);
 int     win_close(int keycode, t_game *game);
 void	fill_struct(t_game *game);
@@ -111,8 +115,8 @@ int	    animation_time(t_game *game);
 void	print_time(int n, t_game *game);
 void	print_meters(int n, t_game *game);
 void	digit_chooser(int n, t_game *game, int x);
-void    lose_animation(t_game *game);
-void    win_animation(t_game *game);
+void    print_lose(t_game *game);
+void    print_win(t_game *game);
 
 
 void    stop_game(t_game *game);

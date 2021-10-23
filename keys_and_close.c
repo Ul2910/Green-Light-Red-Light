@@ -5,6 +5,21 @@ int	key_hook(int key, t_game *game)
 	//printf("%i\n", key);
 	if (key == 53)
 		win_close(53, game);
+	if (game->end_or_start == 2) {
+		if (key == 49) {
+			fill_struct(game);
+			mlx_loop_hook(game->mlx, animation_time, game);
+			game->end_or_start = 0;
+		}
+		return 0;
+	}
+	if (game->end_or_start == 1) {
+		if (key == 49) {
+			mlx_loop_hook(game->mlx, print_start, game);
+			game->end_or_start = 2;
+		}
+		return 0;
+	}
 	if (game->mini_only == 1)
 	{
 		if (key == 49)
@@ -15,25 +30,31 @@ int	key_hook(int key, t_game *game)
 		if (game->balance_game.lock == false)
 			balance_game_check_result(key, game);
 	}
-	else if ((key == 123 && game->prev_key == 124) ||
+	else if (game->meters_left > 0 && ((key == 123 && game->prev_key == 124) ||
 			 (key == 124 && game->prev_key == 123) ||
 			 (key == 123 && game->prev_key == -100) ||
-			 (key == 124 && game->prev_key == -100))
+			 (key == 124 && game->prev_key == -100)))
 	{
 		game->prev_key = key;
-		if (game->is_mini == false && game->meters_left > 0) {
-			game->bottom_x -= 5;
-			game->tmp_meters++;
-			if (game->tmp_meters % 2 == 0)
-				game->plant1_x -= 5;
-			if (game->tmp_meters % 4 == 0)
-				game->plant2_x -= 3;
-			if (game->tmp_meters % 6 == 0)
-				game->plant3_x -= 2;
-			game->meters_left--;
-			print_frame(game, 0);
-			//print_meters(game->meters_left, game);
+		game->bottom_x -= 5;
+		game->tmp_meters++;
+		if (game->tmp_meters % 2 == 0) {
+			game->plant1_x -= 5;
+			game->plant1_1_x -= 5;
 		}
+		if (game->tmp_meters % 4 == 0) {
+			game->plant2_x -= 4;
+			game->plant2_2_x -= 4;
+			game->plant2_2_2_x -= 4;
+		}
+		if (game->tmp_meters % 6 == 0) {
+			game->plant3_x -= 1;
+			game->plant3_3_x -= 1;
+			game->plant3_3_3_x -= 1;
+			game->plant3_3_3_3_x -= 1;
+		}
+		game->meters_left--;
+		print_frame(game, 0);
 	}
 	else
 		return (0);

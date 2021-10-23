@@ -12,8 +12,10 @@ int	main(void)
 	create_digits(&game);
 	init_t_stop_game(&game);
 	init_t_balance_game(&game);
-	print_frame(&game, 0);
-	mlx_loop_hook(game.mlx, animation_time, &game);
+	//print_frame(&game, 0);
+	//print_start(&game);
+	mlx_loop_hook(game.mlx, print_start, &game);
+	//mlx_loop_hook(game.mlx, animation_time, &game);
 	mlx_key_hook(game.mlx_win, key_hook, &game);
 	mlx_hook(game.mlx_win, 17, 1L << 5, win_close, &game);
 	mlx_loop(game.mlx);
@@ -23,6 +25,7 @@ void	print_frame(t_game *game, int time_only)
 {
 	static int step = 1;
 	static int ruby_counter = 0;
+	
 	if (game->bottom_x == -1280)
 		game->bottom_x = 0;
 	if (game->plant1_x == -250)
@@ -31,11 +34,29 @@ void	print_frame(t_game *game, int time_only)
 		game->plant2_x = 1280;
 	if (game->plant3_x == -250)
 		game->plant3_x = 1280;
+	if (game->plant1_1_x == -250)
+		game->plant1_1_x = 1280;
+	if (game->plant2_2_x == -250)
+		game->plant2_2_x = 1280;
+	if (game->plant2_2_2_x == -250)
+		game->plant2_2_2_x = 1280;
+	if (game->plant3_3_x == -250)
+		game->plant3_3_x = 1280;
+	if (game->plant3_3_3_x == -250)
+		game->plant3_3_3_x = 1280;
+	if (game->plant3_3_3_3_x == -250)
+		game->plant3_3_3_3_x = 1280;
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.back, 0, 0);
 	
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant3, game->plant3_x, 50);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant3, game->plant3_3_x, 50);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant3, game->plant3_3_3_x, 50);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant3, game->plant3_3_3_3_x, 50);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant2, game->plant2_x, 50);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant2, game->plant2_2_x, 50);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant2, game->plant2_2_2_x, 50);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant1, game->plant1_x, 50);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.plant1, game->plant1_1_x, 50);
 	
 	if (ruby_counter < 20)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green, game->ruby_x, game->ruby_y);
@@ -88,4 +109,21 @@ void	print_frame(t_game *game, int time_only)
 		stop_game(game);
 	else if (game->mini_only == 2)
 		balance_game(game);
+}
+
+
+int	print_start(t_game *game)
+{
+	static int iter = 0;
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.back, 0, 0);
+	if (iter < 20)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green, 0, 0);
+	else if (iter >= 20 && iter < 40)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green1, 0, 0);
+	else if (iter >= 40 && iter < 60)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green2, 0, 0);
+	iter++;
+	if (iter > 59)
+		iter = 0;
+	return 0;
 }
