@@ -49,7 +49,6 @@ void init_t_balance_game(t_game *game)
 
 void render_target(int i, t_game *game)
 {
-    printf("%d\n", i);
     int x_coord[8] = {631, 673, 630, 588, 784, 827, 785, 742};
     int y_coord[8] = {247, 288, 330, 290, 342, 382, 425, 384};
     void* spr[8] = {game->balance_game.up_img, game->balance_game.right_img, game->balance_game.down_img, game->balance_game.left_img,
@@ -75,10 +74,7 @@ void balance_game(t_game *game)
         game->balance_game.timer = -100;
         game->balance_game.index += 4;
         if (game->balance_game.index > 11)
-        {
-            printf("%d\n", game->balance_game.index);
             exit_minigame(game);
-        }
     }
     game->balance_game.timer++;
     mlx_put_image_to_window(game->mlx, game->mlx_win, game->balance_game.border_img, 340, 173); 
@@ -86,7 +82,6 @@ void balance_game(t_game *game)
 
 void exit_minigame(t_game *game)
 {
-    printf("result = %d\n", game->balance_game.result);
     if (game->balance_game.index > 11 && game->balance_game.result > 9)
         game->mini_only = 0;
     else if (game->balance_game.index > 11 && game->balance_game.result < 10)
@@ -101,7 +96,6 @@ int balance_game_check_result(int key, t_game *game)
     i = 0;
     while(key != arr[i])
         i++;
-    printf("i = %d\n", i);
     if (i == game->balance_game.win_arr[game->balance_game.check_index])
         game->balance_game.result++;
     game->balance_game.check_index++;

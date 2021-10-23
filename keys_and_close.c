@@ -12,10 +12,8 @@ int	key_hook(int key, t_game *game)
 	}
 	else if (game->mini_only == 2)
 	{
-		if (game->balance_game.lock == false) {
-			printf("press %d\n", key);
+		if (game->balance_game.lock == false)
 			balance_game_check_result(key, game);
-		}
 	}
 	else if ((key == 123 && game->prev_key == 124) ||
 			 (key == 124 && game->prev_key == 123) ||
