@@ -16,6 +16,8 @@ typedef struct s_stop_game
     void*   stop_game_target_img;
     void*   stop_game_fit_img;
     void*   stop_game_fon_img;
+	bool	is_on_ground;
+	int		timer;
 }
 t_stop_game;
 
@@ -33,6 +35,8 @@ typedef struct s_balance_game
 	void*	border_img;
 	bool	lock;
 	int		result;
+	int		ready;
+	int		skip_index;
 }
 t_balance_game;
 

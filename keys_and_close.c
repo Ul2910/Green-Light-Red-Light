@@ -23,7 +23,7 @@ int	key_hook(int key, t_game *game)
 	if (game->mini_only == 1)
 	{
 		if (key == 49)
-			stop_game_check_result(game);
+			game->stop_game.is_on_ground = true;
 	}
 	else if (game->mini_only == 2)
 	{
