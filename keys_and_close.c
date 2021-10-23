@@ -53,6 +53,10 @@ int	win_close(int keycode, t_game *game)
 		mlx_destroy_image(game->mlx, game->img.ninja2);
 		mlx_destroy_image(game->mlx, game->img.ninja3);
 		mlx_destroy_image(game->mlx, game->img.ninja4);
+		mlx_destroy_image(game->mlx, game->img.ruby_red);
+		mlx_destroy_image(game->mlx, game->img.ruby_green);
+		mlx_destroy_image(game->mlx, game->img.ruby_green1);
+		mlx_destroy_image(game->mlx, game->img.ruby_green2);
 		mlx_destroy_image(game->mlx, game->digits.zero);
 		mlx_destroy_image(game->mlx, game->digits.one);
 		mlx_destroy_image(game->mlx, game->digits.two);
