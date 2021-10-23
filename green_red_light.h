@@ -115,5 +115,6 @@ void	init_t_balance_game(t_game *game);
 int		balance_game_check_result(int key, t_game *game);
 void	lose_game(void);
 void	start_random_minigame(t_game *game);
+void	exit_minigame(t_game *game);
 
 #endif
