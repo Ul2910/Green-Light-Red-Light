@@ -11,6 +11,7 @@ int	main(void)
 	create_imgs(&game);
 	create_digits(&game);
 	init_t_stop_game(&game);
+	init_t_balance_game(&game);
 	print_frame(&game, 0);
 	mlx_loop_hook(game.mlx, animation_time, &game);
 	mlx_key_hook(game.mlx_win, key_hook, &game);
@@ -59,5 +60,6 @@ void	print_frame(t_game *game, int time_only)
 	game->digits.meters_x = 200;
 	if (game->mini_only == 1)
 		stop_game(game);
-
+	else if (game->mini_only == 2)
+		balance_game(game);
 }

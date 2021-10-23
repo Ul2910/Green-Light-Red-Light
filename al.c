@@ -41,10 +41,10 @@ void    init_t_stop_game(t_game *game)
     game->stop_game.stop_game_target_img = mlx_new_image(game->mlx, 50, 50);
     game->stop_game.stop_game_fit_img = mlx_new_image(game->mlx, 100, 100);
     game->stop_game.stop_game_fon_img = mlx_new_image(game->mlx, 100, 100);
-    game->stop_game.stop_game_window_img = mlx_xpm_file_to_image(game->mlx, "img/stop_game_window.xpm", &img_width, &img_height);
-    game->stop_game.stop_game_target_img = mlx_xpm_file_to_image(game->mlx, "img/stop_game_target.xpm", &img_width, &img_height);
-    game->stop_game.stop_game_fit_img = mlx_xpm_file_to_image(game->mlx, "img/stop_game_fit.xpm", &img_width, &img_height);
-    game->stop_game.stop_game_fon_img = mlx_xpm_file_to_image(game->mlx, "img/stop_game_fon.xpm", &img_width, &img_height);
+    game->stop_game.stop_game_window_img = mlx_xpm_file_to_image(game->mlx, "xpm/mini_window.xpm", &img_width, &img_height);
+    game->stop_game.stop_game_target_img = mlx_xpm_file_to_image(game->mlx, "xpm/earth.xpm", &img_width, &img_height);
+    game->stop_game.stop_game_fit_img = mlx_xpm_file_to_image(game->mlx, "xmp/leg.xpm", &img_width, &img_height);
+    // game->stop_game.stop_game_fon_img = mlx_xpm_file_to_image(game->mlx, "img/stop_game_fon.xpm", &img_width, &img_height);
     game->stop_game.curr_fit_position = 0;
 }
        //                 tmp_meters      meters_left

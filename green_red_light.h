@@ -21,6 +21,22 @@ typedef struct s_stop_game
 }
 t_stop_game;
 
+typedef struct s_balance_game
+{
+    int     win_arr[12];
+    int     timer;
+    int     index;
+    int     check_index;
+    void*   window_img;
+    void*   up_img;
+    void*   down_img;
+    void*   left_img;
+    void*   right_img;
+	void*	border_img;
+	bool	lock;
+}
+t_balance_game;
+
 typedef struct s_img
 {
 	void	*back;
@@ -72,6 +88,7 @@ typedef struct s_game
 	int			plant3_x;
 	int			mini_only;
 	t_stop_game stop_game;
+	t_balance_game balance_game;
 }
 t_game;
 
@@ -91,8 +108,10 @@ void    win_animation(t_game *game);
 
 void    stop_game(t_game *game);
 void    init_t_stop_game(t_game *game);
-int		stop_game_render_new_frame(t_game *game);
 int		stop_game_check_result(t_game *game);
+void	balance_game(t_game *game);
+void	init_t_balance_game(t_game *game);
+int		balance_game_check_result(int key, t_game *game);
 void	lose_game(void);
 void	start_random_minigame(t_game *game);
 
