@@ -9,6 +9,9 @@ void	create_imgs(t_game *game)
 	game->img.plant1 = mlx_new_image(game->mlx, 250, 670);
 	game->img.plant2 = mlx_new_image(game->mlx, 250, 670);
 	game->img.plant3 = mlx_new_image(game->mlx, 250, 670);
+//	game->img.plant1_1 = mlx_new_image(game->mlx, 250, 670);
+//	game->img.plant2_2 = mlx_new_image(game->mlx, 250, 670);
+//	game->img.plant3_3 = mlx_new_image(game->mlx, 250, 670);
 	game->img.bottom = mlx_new_image(game->mlx, 1280, 100);
 	game->img.ninja1 = mlx_new_image(game->mlx, 460, 460);
 	game->img.ninja2 = mlx_new_image(game->mlx, 460, 460);
@@ -22,6 +25,9 @@ void	create_imgs(t_game *game)
 	game->img.plant1 = mlx_xpm_file_to_image(game->mlx, "xpm/plant1.xpm", &img_width, &img_height);
 	game->img.plant2 = mlx_xpm_file_to_image(game->mlx, "xpm/plant2.xpm", &img_width, &img_height);
 	game->img.plant3 = mlx_xpm_file_to_image(game->mlx, "xpm/plant3.xpm", &img_width, &img_height);
+//	game->img.plant1_1 = mlx_xpm_file_to_image(game->mlx, "xpm/plant1.xpm", &img_width, &img_height);
+//	game->img.plant2_2 = mlx_xpm_file_to_image(game->mlx, "xpm/plant2.xpm", &img_width, &img_height);
+//	game->img.plant3_3 = mlx_xpm_file_to_image(game->mlx, "xpm/plant3.xpm", &img_width, &img_height);
 	game->img.bottom = mlx_xpm_file_to_image(game->mlx, "xpm/bottom.xpm", &img_width, &img_height);
 	game->img.ninja1 = mlx_xpm_file_to_image(game->mlx, "xpm/ninja1.xpm", &img_width, &img_height);
 	game->img.ninja2 = mlx_xpm_file_to_image(game->mlx, "xpm/ninja2.xpm", &img_width, &img_height);

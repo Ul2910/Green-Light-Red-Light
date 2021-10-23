@@ -1,9 +1,11 @@
 #include "green_red_light.h"
 
-void    lose_animation(t_game *game) {
-    (void)game;
+void    print_win(t_game *game) {
+    game->end_or_start = 1;
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.back, 0, 0);
 }
 
-void    win_animation(t_game *game) {
-    (void)game;
+void    print_lose(t_game *game) {
+    game->end_or_start = 1;
+	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.back, 0, 0);
 }
