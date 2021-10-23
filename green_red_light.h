@@ -49,6 +49,10 @@ typedef struct s_img
 	void	*ninja2;
 	void	*ninja3;
 	void	*ninja4;
+	void	*ruby_green;
+	void	*ruby_green1;
+	void	*ruby_green2;
+	void	*ruby_red;
 }
 t_img;
 
@@ -64,6 +68,8 @@ typedef struct s_digits
 	void	*seven;
 	void	*eight;
 	void	*nine;
+	void	*m_left;
+	void	*t_left;
 	int		time_x;
 	int		meters_x;
 }
@@ -87,6 +93,8 @@ typedef struct s_game
 	int			plant1_x;
 	int			plant2_x;
 	int			plant3_x;
+	int			ruby_x;
+	int			ruby_y;
 	int			mini_only;
 	t_stop_game stop_game;
 	t_balance_game balance_game;
