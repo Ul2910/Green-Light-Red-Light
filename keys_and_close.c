@@ -67,6 +67,15 @@ int	win_close(int keycode, t_game *game)
 		mlx_destroy_image(game->mlx, game->digits.seven);
 		mlx_destroy_image(game->mlx, game->digits.eight);
 		mlx_destroy_image(game->mlx, game->digits.nine);
+		mlx_destroy_image(game->mlx, game->stop_game.stop_game_window_img);
+		mlx_destroy_image(game->mlx, game->stop_game.stop_game_target_img);
+		mlx_destroy_image(game->mlx, game->stop_game.stop_game_fit_img);
+		mlx_destroy_image(game->mlx, game->balance_game.window_img);
+		mlx_destroy_image(game->mlx, game->balance_game.up_img);
+		mlx_destroy_image(game->mlx, game->balance_game.down_img);
+		mlx_destroy_image(game->mlx, game->balance_game.left_img);
+		mlx_destroy_image(game->mlx, game->balance_game.right_img);
+		mlx_destroy_image(game->mlx, game->balance_game.border_img);
 		mlx_destroy_window(game->mlx, game->mlx_win);
 	}
 	exit(0);

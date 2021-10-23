@@ -9,8 +9,9 @@ int	animation_time(t_game *game)
 	//game->digits.time_x = 1130;
 	
 
-	if (game->time_left == 115 && game->mini_only == 0) {
-		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / (5 * 15));
+	if (game->tmp_meters > 0 && game->mini_only == 0 &&
+		(game->time_left == 110 || game->time_left == 68 || game->time_left == 30)) {
+		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / ((120 - game->time_left) * 15));
 		game->stop_game.offset_to_triger_zone = 540 + rand() % (400 - game->stop_game.triger_zone_len);
 		game->mini_only = 1;
 	}

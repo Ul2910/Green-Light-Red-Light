@@ -11,7 +11,10 @@ int stop_game_check_result(t_game *game)
         res = -1;
 	}
     else
+    {
+        game->stop_game.curr_fit_position = 0;
 		start_random_minigame(game);
+    }
     return res;
 }
 

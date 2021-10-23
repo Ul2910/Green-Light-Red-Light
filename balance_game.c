@@ -40,6 +40,7 @@ void init_t_balance_game(t_game *game)
     game->balance_game.lock = true;
     while(i < 12)
     {
+        game->balance_game.win_arr[i] = 0;
         game->balance_game.win_arr[i] = rand() % 8;
         i++;
     }
@@ -59,17 +60,17 @@ void render_target(int i, t_game *game)
 void balance_game(t_game *game)
 {
     mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_window_img, 340, 173);
-    if (game->balance_game.timer > 50 && game->balance_game.timer < 80)
+    if (game->balance_game.timer > 30 && game->balance_game.timer < 50)
         render_target(game->balance_game.win_arr[game->balance_game.index], game);
-    else if (game->balance_game.timer > 85 && game->balance_game.timer < 115)
+    else if (game->balance_game.timer > 55 && game->balance_game.timer < 75)
         render_target(game->balance_game.win_arr[game->balance_game.index + 1], game);
-    else if (game->balance_game.timer > 120 && game->balance_game.timer < 150)
+    else if (game->balance_game.timer > 80 && game->balance_game.timer < 100)
         render_target(game->balance_game.win_arr[game->balance_game.index + 2], game);
-    else if (game->balance_game.timer > 155 && game->balance_game.timer < 180)
+    else if (game->balance_game.timer > 105 && game->balance_game.timer < 125)
         render_target(game->balance_game.win_arr[game->balance_game.index + 3], game);
-    else if (game->balance_game.timer > 180 && game->balance_game.timer < 310)
+    else if (game->balance_game.timer > 130 && game->balance_game.timer < 150)
         game->balance_game.lock = false;
-    else if (game->balance_game.timer >= 310) {
+    else if (game->balance_game.timer > 280) {
         game->balance_game.lock = true;
         game->balance_game.timer = -100;
         game->balance_game.index += 4;
@@ -83,7 +84,11 @@ void balance_game(t_game *game)
 void exit_minigame(t_game *game)
 {
     if (game->balance_game.index > 11 && game->balance_game.result > 9)
+    {
         game->mini_only = 0;
+        game->balance_game.index = 0;
+        game->balance_game.check_index = 0;
+    }
     else if (game->balance_game.index > 11 && game->balance_game.result < 10)
         lose_game();
 }
@@ -94,6 +99,8 @@ int balance_game_check_result(int key, t_game *game)
     int i;
 
     i = 0;
+    if (game->balance_game.check_index > 11)
+        return game->balance_game.result;
     while(key != arr[i])
         i++;
     if (i == game->balance_game.win_arr[game->balance_game.check_index])
