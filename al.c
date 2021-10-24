@@ -54,10 +54,10 @@ void stop_game(t_game *game)
 
 void    init_t_stop_game(t_game *game)
 {
-    int         img_width;
-    int         img_height;
-    
-    game->stop_game.stop_game_window_img = mlx_new_image(game->mlx, 600, 374);
+    int	img_width;
+    int	img_height;
+
+	game->stop_game.stop_game_window_img = mlx_new_image(game->mlx, 600, 374);
     game->stop_game.stop_game_target_img = mlx_new_image(game->mlx, 75, 75);
     game->stop_game.stop_game_fit_img = mlx_new_image(game->mlx, 220, 200);
     game->stop_game.rules = mlx_new_image(game->mlx, 600, 100);

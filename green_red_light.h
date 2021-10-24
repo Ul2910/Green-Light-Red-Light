@@ -1,11 +1,11 @@
 #ifndef GREEN_RED_LIGHT_H
 # define GREEN_RED_LIGHT_H
 
-# include <stdbool.h> // typedef bool
-# include <stdlib.h> // exit
-# include <stdio.h> // printf
-# include <time.h> // time
-# include <mlx.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <time.h>
+# include "minilibx_opengl_20191021/mlx.h"
 
 typedef struct s_stop_game
 {
@@ -132,7 +132,6 @@ void	print_meters(int n, t_game *game);
 void	digit_chooser(int n, t_game *game, int x);
 void    print_lose(t_game *game);
 void    print_win(t_game *game);
-
 
 void    stop_game(t_game *game);
 void    init_t_stop_game(t_game *game);
