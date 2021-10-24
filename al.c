@@ -5,18 +5,16 @@ int	stop_game_check_result(t_game *game)
 	int	res;
 
 	res = 1;
-	// if (game->stop_game.curr_fit_position + 340 + 110 > game->stop_game.offset_to_triger_zone + game->stop_game.triger_zone_len
-	// 	|| game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone)
-	if (game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone
-        && game->stop_game.curr_fit_position + 340 + 100 > game->stop_game.offset_to_triger_zone - game->stop_game.triger_zone_len)
-    {
-		game->stop_game.curr_fit_position = 0;
-		start_random_minigame(game);
+	if (game->stop_game.curr_fit_position + 340 + 110 > game->stop_game.offset_to_triger_zone + game->stop_game.triger_zone_len
+		|| game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone)
+	{
+		mlx_loop_hook(game->mlx, print_lose, game);
+		res = -1;
 	}
 	else
 	{
-        mlx_loop_hook(game->mlx, print_lose, game);
-		res = -1;
+		game->stop_game.curr_fit_position = 0;
+		start_random_minigame(game);
 	}
 	return (res);
 }
@@ -26,17 +24,16 @@ void	stop_game(t_game *game)
 	int	i;
 	int	y_coord;
 
-	// i = 0;
-    i = game->stop_game.offset_to_triger_zone - 75;
-	y_coord = 347;
+	i = 0;
+	y_coord = 387;
 	if (game->stop_game.curr_fit_position > 430)
 		mlx_loop_hook(game->mlx, print_lose, game);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_window_img, 340, 173);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->balance_game.rules, 340, 36);
-	while (i > game->stop_game.offset_to_triger_zone - game->stop_game.triger_zone_len)
+	while (i < game->stop_game.triger_zone_len)
 	{
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_target_img, i, 472);
-		i -= 74;
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_target_img, game->stop_game.offset_to_triger_zone + i, 472);
+		i += 74;
 	}
 	if (!game->stop_game.is_on_ground)
 	{
@@ -45,9 +42,9 @@ void	stop_game(t_game *game)
 	}
 	else
 	{
-		if (game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone
-            && game->stop_game.curr_fit_position + 340 + 100 > game->stop_game.offset_to_triger_zone - game->stop_game.triger_zone_len)
-			y_coord += 40;
+		if (game->stop_game.curr_fit_position + 340 + 110 > game->stop_game.offset_to_triger_zone + game->stop_game.triger_zone_len
+			|| game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone)
+			y_coord -= 40;
 		if (game->stop_game.timer++ < 70)
 			mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_fit_img, game->stop_game.curr_fit_position + 340, y_coord);
 		else
