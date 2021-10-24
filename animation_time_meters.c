@@ -8,14 +8,18 @@ int	animation_time(t_game *game)
 	print_frame(game, 1);
 	if (game->tmp_meters > 0 && game->mini_only == 0 && game->time_left == game->minigame_start[2])
 	{
-		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / ((120 - game->time_left) * 20));
+		fill_stop_game(game);
+		fill_balance_game(game);
+		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / ((120 - game->time_left) * 22));
 		game->stop_game.offset_to_triger_zone = 540 + rand() % (400 - game->stop_game.triger_zone_len);
 		game->mini_only = 1;
 	}
 	if (game->tmp_meters > 0 && game->mini_only == 0
 		&& (game->time_left == game->minigame_start[1] || game->time_left == game->minigame_start[0]))
 	{
-		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / ((120 - game->time_left) * 8));
+		fill_stop_game(game);
+		fill_balance_game(game);
+		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / ((120 - game->time_left) * 10));
 		game->stop_game.offset_to_triger_zone = 540 + rand() % (400 - game->stop_game.triger_zone_len);
 		game->mini_only = 1;
 	}

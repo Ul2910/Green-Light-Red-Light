@@ -3,7 +3,6 @@
 
 # include <stdbool.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <time.h>
 # include "minilibx_opengl_20191021/mlx.h"
 

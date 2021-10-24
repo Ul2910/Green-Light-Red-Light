@@ -1,4 +1,4 @@
-NAME	= green_light-red_light
+NAME	= Green-Light-Red-Light
 
 SRCS	= main.c helpers.c keys_and_close.c create_img_digits.c animation_time_meters.c lose_win.c al.c balance_game.c
 

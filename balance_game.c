@@ -133,6 +133,12 @@ int	balance_game_check_result(int key, t_game *game)
 	int			i;
 
 	i = 0;
+	if (key != 13 && key != 2 && key != 1 && key != 0
+		&& key != 126 && key != 124 && key != 125 && key != 123)
+	{
+		game->balance_game.check_index++;
+		return (game->balance_game.result);
+	}
 	if (game->balance_game.check_index > 11)
 		return (game->balance_game.result);
 	while (key != arr[i])
