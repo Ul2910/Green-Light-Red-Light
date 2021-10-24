@@ -16,6 +16,7 @@ typedef struct s_stop_game
     void*   stop_game_target_img;
     void*   stop_game_fit_img;
     void*   stop_game_fon_img;
+	void*	rules;
 	bool	is_on_ground;
 	int		timer;
 }
@@ -33,6 +34,7 @@ typedef struct s_balance_game
     void*   left_img;
     void*   right_img;
 	void*	border_img;
+	void*	rules;
 	bool	lock;
 	int		result;
 	int		ready;
@@ -138,7 +140,6 @@ int		stop_game_check_result(t_game *game);
 void	balance_game(t_game *game);
 void	init_t_balance_game(t_game *game);
 int		balance_game_check_result(int key, t_game *game);
-void	lose_game(void);
 void	start_random_minigame(t_game *game);
 void	exit_minigame(t_game *game);
 

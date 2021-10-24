@@ -27,12 +27,14 @@ void init_t_balance_game(t_game *game)
     game->balance_game.left_img = mlx_new_image(game->mlx, 48, 48);
     game->balance_game.right_img = mlx_new_image(game->mlx, 48, 48);
     game->balance_game.border_img = mlx_new_image(game->mlx, 520, 240);
+    game->balance_game.rules = mlx_new_image(game->mlx, 600, 100);
     game->balance_game.window_img = mlx_xpm_file_to_image(game->mlx, "xpm/mini_window2_back.xpm", &img_width, &img_height);
     game->balance_game.up_img = mlx_xpm_file_to_image(game->mlx, "xpm/filler_red.xpm", &img_width, &img_height);
     game->balance_game.down_img = mlx_xpm_file_to_image(game->mlx, "xpm/filler_green.xpm", &img_width, &img_height);
     game->balance_game.left_img = mlx_xpm_file_to_image(game->mlx, "xpm/filler_yellow.xpm", &img_width, &img_height);
     game->balance_game.right_img = mlx_xpm_file_to_image(game->mlx, "xpm/filler_pink.xpm", &img_width, &img_height);
-    game->balance_game.border_img = mlx_xpm_file_to_image(game->mlx, "xpm/mini_window2.xpm", &img_width, &img_height);
+    game->balance_game.border_img = mlx_xpm_file_to_image(game->mlx, "xpm/mini_window22.xpm", &img_width, &img_height);
+    game->balance_game.rules = mlx_xpm_file_to_image(game->mlx, "xpm/mini_info1.xpm", &img_width, &img_height);
     game->balance_game.timer = 0;
     game->balance_game.index = 0;
     game->balance_game.check_index = 0;
@@ -64,6 +66,7 @@ void balance_game(t_game *game)
     int arr[3] = {4, 8, 12};
 
     mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_window_img, 340, 173);
+    mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.rules, 340, 36);
     if (game->balance_game.timer > 30 && game->balance_game.timer < 50)
         render_target(game->balance_game.win_arr[game->balance_game.index], game);
     else if (game->balance_game.timer > 55 && game->balance_game.timer < 75)
@@ -106,7 +109,7 @@ void exit_minigame(t_game *game)
         }
     }
     else if (game->balance_game.index > 11 && game->balance_game.result < 10)
-        lose_game();
+        print_lose(game);
 }
 
 int balance_game_check_result(int key, t_game *game)

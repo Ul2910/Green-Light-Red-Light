@@ -8,7 +8,7 @@ int stop_game_check_result(t_game *game)
     if (game->stop_game.curr_fit_position + 340 + 110 > game->stop_game.offset_to_triger_zone + game->stop_game.triger_zone_len ||
 		game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone)
 	{
-        lose_game();
+        print_lose(game);
         res = -1;
 	}
     else
@@ -27,8 +27,9 @@ void stop_game(t_game *game)
     i = 0;
     y_coord = 387;
     if (game->stop_game.curr_fit_position > 430)
-        lose_game();
+        print_lose(game);
     mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_window_img, 340, 173);
+    mlx_put_image_to_window(game->mlx, game->mlx_win, game->balance_game.rules, 340, 36);
     while (i < game->stop_game.triger_zone_len)
     {
         mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_target_img, game->stop_game.offset_to_triger_zone + i, 472);
@@ -59,24 +60,18 @@ void    init_t_stop_game(t_game *game)
     game->stop_game.stop_game_window_img = mlx_new_image(game->mlx, 600, 374);
     game->stop_game.stop_game_target_img = mlx_new_image(game->mlx, 75, 75);
     game->stop_game.stop_game_fit_img = mlx_new_image(game->mlx, 220, 200);
+    game->stop_game.rules = mlx_new_image(game->mlx, 600, 100);
     game->stop_game.stop_game_window_img = mlx_xpm_file_to_image(game->mlx, "xpm/mini_window.xpm", &img_width, &img_height);
     game->stop_game.stop_game_target_img = mlx_xpm_file_to_image(game->mlx, "xpm/earth.xpm", &img_width, &img_height);
     game->stop_game.stop_game_fit_img = mlx_xpm_file_to_image(game->mlx, "xpm/leg.xpm", &img_width, &img_height);
+    game->stop_game.rules = mlx_xpm_file_to_image(game->mlx, "xpm/mini_info2.xpm", &img_width, &img_height);
     game->stop_game.curr_fit_position = 0;
     game->stop_game.is_on_ground = false;
     game->stop_game.timer = 0;
 }
-       //                 tmp_meters      meters_left
-
-void lose_game(void)
-{
-    printf("loose\n");
-    exit(1);
-}
 
 void start_random_minigame(t_game *game)
 {
-    printf("win\n");
     game->mini_only = 2;
     game->tmp_meters = 0;
     game->stop_game.is_on_ground = false;
