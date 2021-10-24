@@ -25,6 +25,6 @@ void	fill_struct(t_game *game)
 	game->ruby_x = 787;
 	game->ruby_y = 303;
 	game->minigame_start[2] = rand() % 15 + 100;
-	game->minigame_start[1] = rand() % 30 + 50; 
+	game->minigame_start[1] = rand() % 30 + 50;
 	game->minigame_start[0] = rand() % 10 + 20;
 }

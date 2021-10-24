@@ -79,4 +79,3 @@ void	create_digits(t_game *game)
 	game->digits.m_left = mlx_xpm_file_to_image(game->mlx, "xpm/m_left.xpm", &img_width, &img_height);
 	game->digits.t_left = mlx_xpm_file_to_image(game->mlx, "xpm/t_left.xpm", &img_width, &img_height);
 }
-

@@ -20,9 +20,9 @@ int	main(void)
 
 void	print_frame(t_game *game, int time_only)
 {
-	static int step = 1;
-	static int ruby_counter = 0;
-	
+	static int	step = 1;
+	static int	ruby_counter = 0;
+
 	if (game->bottom_x == -1280)
 		game->bottom_x = 0;
 	if (game->plant1_x == -250)
@@ -104,11 +104,10 @@ void	print_frame(t_game *game, int time_only)
 		balance_game(game);
 }
 
-
 int	print_start(t_game *game)
 {
-	static int iter = 0;
-	
+	static int	iter = 0;
+
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.start, 0, 0);
 	if (iter < 10)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green_big, 1080, 130);
@@ -133,5 +132,5 @@ int	print_start(t_game *game)
 	iter++;
 	if (iter > 100)
 		iter = 0;
-	return 0;
+	return (0);
 }

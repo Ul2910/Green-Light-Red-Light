@@ -12,7 +12,7 @@ int	key_hook(int key, t_game *game)
 			mlx_loop_hook(game->mlx, animation_time, game);
 			game->end_or_start = 0;
 		}
-		return 0;
+		return (0);
 	}
 	if (game->end_or_start == 1)
 	{
@@ -21,7 +21,7 @@ int	key_hook(int key, t_game *game)
 			mlx_loop_hook(game->mlx, print_start, game);
 			game->end_or_start = 2;
 		}
-		return 0;
+		return (0);
 	}
 	if (game->mini_only == 1)
 	{
@@ -33,10 +33,10 @@ int	key_hook(int key, t_game *game)
 		if (game->balance_game.lock == false)
 			balance_game_check_result(key, game);
 	}
-	else if (game->meters_left > 0 && ((key == 123 && game->prev_key == 124) ||
-			 (key == 124 && game->prev_key == 123) ||
-			 (key == 123 && game->prev_key == -100) ||
-			 (key == 124 && game->prev_key == -100)))
+	else if (game->meters_left > 0 && ((key == 123 && game->prev_key == 124)
+			|| (key == 124 && game->prev_key == 123)
+			|| (key == 123 && game->prev_key == -100)
+			|| (key == 124 && game->prev_key == -100)))
 	{
 		game->prev_key = key;
 		game->bottom_x -= 5;
