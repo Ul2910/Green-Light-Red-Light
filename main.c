@@ -116,20 +116,28 @@ int	print_start(t_game *game)
 {
 	static int iter = 0;
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.start, 0, 0);
-	if (iter < 20)
+	if (iter < 10)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green_big, 1080, 130);
-	else if (iter >= 20 && iter < 40)
+	else if (iter >= 10 && iter < 20)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green1_big, 1080, 130);
-	else if (iter >= 40 && iter < 60)
+	else if (iter >= 20 && iter < 30)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green2_big, 1080, 130);
-	else if (iter >= 60 && iter < 80)
+	else if (iter >= 30 && iter < 40)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green1_big, 1080, 130);
+	else if (iter >= 40 && iter < 50)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_green_big, 1080, 130);
+	else if (iter >= 50 && iter < 60)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_red, 1080, 130);
-	else if (iter >= 80 && iter < 100)
+	else if (iter >= 60 && iter < 70)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_red1, 1080, 130);
-	else if (iter >= 100 && iter < 120)
+	else if (iter >= 70 && iter < 80)
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_red2, 1080, 130);
+	else if (iter >= 80 && iter < 90)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_red1, 1080, 130);
+	else if (iter >= 90 && iter < 100)
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->img.ruby_red, 1080, 130);
 	iter++;
-	if (iter > 119)
+	if (iter > 100)
 		iter = 0;
 	return 0;
 }
