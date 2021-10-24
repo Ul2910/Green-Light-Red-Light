@@ -125,8 +125,8 @@ int		animation_time(t_game *game);
 void	print_time(int n, t_game *game);
 void	print_meters(int n, t_game *game);
 void	digit_chooser(int n, t_game *game, int x);
-void	print_lose(t_game *game);
-void	print_win(t_game *game);
+int		print_lose(t_game *game);
+int		print_win(t_game *game);
 
 void	stop_game(t_game *game);
 void	init_t_stop_game(t_game *game);
@@ -136,5 +136,7 @@ void	init_t_balance_game(t_game *game);
 int		balance_game_check_result(int key, t_game *game);
 void	start_random_minigame(t_game *game);
 void	exit_minigame(t_game *game);
+void	fill_stop_game(t_game *game);
+void	fill_balance_game(t_game *game);
 
 #endif

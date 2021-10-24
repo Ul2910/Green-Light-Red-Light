@@ -61,9 +61,16 @@ void	render_target(int i, t_game *game)
 {
 	static int		x_coord[8] = {631, 673, 630, 588, 784, 827, 785, 742};
 	static int		y_coord[8] = {247, 288, 330, 290, 342, 382, 425, 384};
-	static void		*spr[8] = {game->balance_game.up_img, game->balance_game.right_img, game->balance_game.down_img, game->balance_game.left_img,
-		game->balance_game.up_img, game->balance_game.right_img, game->balance_game.down_img, game->balance_game.left_img};
+	void    		*spr[8];
 
+    spr[0] = game->balance_game.up_img;
+    spr[1] = game->balance_game.right_img;
+    spr[2] = game->balance_game.down_img;
+    spr[3] = game->balance_game.left_img;
+    spr[4] = game->balance_game.up_img;
+    spr[5] = game->balance_game.right_img;
+    spr[6] = game->balance_game.down_img;
+    spr[7] = game->balance_game.left_img;
 	mlx_put_image_to_window(game->mlx, game->mlx_win, spr[i], x_coord[i], y_coord[i]);
 }
 
@@ -114,9 +121,10 @@ void	exit_minigame(t_game *game)
 			game->balance_game.win_arr[i] = rand() % 8;
 			i++;
 		}
+        fill_balance_game(game);
 	}
 	else if (game->balance_game.index > 11 && game->balance_game.result < 10)
-		print_lose(game);
+		mlx_loop_hook(game->mlx, print_lose, game);
 }
 
 int	balance_game_check_result(int key, t_game *game)

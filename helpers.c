@@ -24,7 +24,36 @@ void	fill_struct(t_game *game)
 	game->plant3_3_3_3_x = 1100;
 	game->ruby_x = 787;
 	game->ruby_y = 303;
-	game->minigame_start[2] = rand() % 15 + 100;
-	game->minigame_start[1] = rand() % 30 + 50;
-	game->minigame_start[0] = rand() % 10 + 20;
+	game->minigame_start[2] = rand() % 5 + 110;
+	game->minigame_start[1] = rand() % 20 + 60;
+	game->minigame_start[0] = rand() % 20 + 20;
+	fill_balance_game(game);
+	fill_stop_game(game);
+}
+
+void	fill_stop_game(t_game *game)
+{
+	game->stop_game.curr_fit_position = 0;
+	game->stop_game.is_on_ground = false;
+	game->stop_game.timer = 0;
+}
+
+void	fill_balance_game(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	game->balance_game.timer = 0;
+	game->balance_game.index = 0;
+	game->balance_game.check_index = 0;
+	game->balance_game.result = 0;
+	game->balance_game.lock = true;
+	game->balance_game.ready = 4;
+	game->balance_game.skip_index = 0;
+	while (i < 12)
+	{
+		game->balance_game.win_arr[i] = 0;
+		game->balance_game.win_arr[i] = rand() % 8;
+		i++;
+	}
 }

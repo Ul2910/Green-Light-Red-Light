@@ -8,7 +8,7 @@ int	stop_game_check_result(t_game *game)
 	if (game->stop_game.curr_fit_position + 340 + 110 > game->stop_game.offset_to_triger_zone + game->stop_game.triger_zone_len
 		|| game->stop_game.curr_fit_position + 340 + 110 < game->stop_game.offset_to_triger_zone)
 	{
-		print_lose(game);
+		mlx_loop_hook(game->mlx, print_lose, game);
 		res = -1;
 	}
 	else
@@ -27,7 +27,7 @@ void	stop_game(t_game *game)
 	i = 0;
 	y_coord = 387;
 	if (game->stop_game.curr_fit_position > 430)
-		print_lose(game);
+		mlx_loop_hook(game->mlx, print_lose, game);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->stop_game.stop_game_window_img, 340, 173);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->balance_game.rules, 340, 36);
 	while (i < game->stop_game.triger_zone_len)
@@ -76,4 +76,5 @@ void	start_random_minigame(t_game *game)
 	game->tmp_meters = 0;
 	game->stop_game.is_on_ground = false;
 	game->stop_game.timer = 0;
+    fill_stop_game(game);
 }

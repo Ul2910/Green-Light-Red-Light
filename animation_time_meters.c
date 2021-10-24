@@ -2,7 +2,8 @@
 
 int	animation_time(t_game *game)
 {
-	game->seconds = time(NULL);
+	if (game->end_or_start == 0)
+		game->seconds = time(NULL);
 	game->time_left = game->finish_time - game->seconds;
 	print_frame(game, 1);
 	if (game->tmp_meters > 0 && game->mini_only == 0 && game->time_left == game->minigame_start[2])
