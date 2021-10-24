@@ -43,6 +43,9 @@ t_balance_game;
 typedef struct s_img
 {
 	void	*back;
+	void	*start;
+	void	*win;
+	void	*lose;
 	void	*plant1;
 	void	*plant2;
 	void	*plant3;
@@ -55,6 +58,11 @@ typedef struct s_img
 	void	*ruby_green1;
 	void	*ruby_green2;
 	void	*ruby_red;
+	void	*ruby_red1;
+	void	*ruby_red2;
+	void	*ruby_green_big;
+	void	*ruby_green1_big;
+	void	*ruby_green2_big;
 }
 t_img;
 

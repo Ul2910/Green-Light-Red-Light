@@ -2,7 +2,6 @@
 
 int	key_hook(int key, t_game *game)
 {
-	//printf("%i\n", key);
 	if (key == 53)
 		win_close(53, game);
 	if (game->end_or_start == 2) {
@@ -66,6 +65,9 @@ int	win_close(int keycode, t_game *game)
 	if (keycode == 53)
 	{
 		mlx_destroy_image(game->mlx, game->img.back);
+		mlx_destroy_image(game->mlx, game->img.start);
+		mlx_destroy_image(game->mlx, game->img.win);
+		mlx_destroy_image(game->mlx, game->img.lose);
 		mlx_destroy_image(game->mlx, game->img.plant1);
 		mlx_destroy_image(game->mlx, game->img.plant2);
 		mlx_destroy_image(game->mlx, game->img.plant3);
@@ -75,9 +77,14 @@ int	win_close(int keycode, t_game *game)
 		mlx_destroy_image(game->mlx, game->img.ninja3);
 		mlx_destroy_image(game->mlx, game->img.ninja4);
 		mlx_destroy_image(game->mlx, game->img.ruby_red);
+		mlx_destroy_image(game->mlx, game->img.ruby_red1);
+		mlx_destroy_image(game->mlx, game->img.ruby_red2);
 		mlx_destroy_image(game->mlx, game->img.ruby_green);
 		mlx_destroy_image(game->mlx, game->img.ruby_green1);
 		mlx_destroy_image(game->mlx, game->img.ruby_green2);
+		mlx_destroy_image(game->mlx, game->img.ruby_green_big);
+		mlx_destroy_image(game->mlx, game->img.ruby_green1_big);
+		mlx_destroy_image(game->mlx, game->img.ruby_green2_big);
 		mlx_destroy_image(game->mlx, game->digits.zero);
 		mlx_destroy_image(game->mlx, game->digits.one);
 		mlx_destroy_image(game->mlx, game->digits.two);
