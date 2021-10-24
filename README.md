@@ -8,7 +8,7 @@ Developers: [Ul2910](https://github.com/Ul2910), [Asu-A](https://github.com/Asu-
 
 make
 
-./green_light-red_light
+./Green-Light-Red-Light
 
 <img width="1284" alt="Screen Shot 2021-10-24 at 3 50 22 PM" src="https://user-images.githubusercontent.com/75734396/138595051-0be901dc-795f-4512-b339-1cef8dd4f186.png">
 <img width="1279" alt="Screen Shot 2021-10-24 at 3 50 40 PM" src="https://user-images.githubusercontent.com/75734396/138595053-f10e0f60-31ae-4c67-9b83-92380c7abcb3.png">
