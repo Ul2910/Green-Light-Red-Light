@@ -11,7 +11,8 @@ int	animation_time(t_game *game)
 		fill_stop_game(game);
 		fill_balance_game(game);
 		game->stop_game.triger_zone_len = 400 / 100 * (100 - game->tmp_meters * 100 / ((120 - game->time_left) * 22));
-		game->stop_game.offset_to_triger_zone = 540 + rand() % (400 - game->stop_game.triger_zone_len);
+		// game->stop_game.offset_to_triger_zone = 540 + rand() % (400 - game->stop_game.triger_zone_len);
+		game->stop_game.offset_to_triger_zone = 940 - rand() % 200;
 		game->mini_only = 1;
 	}
 	if (game->tmp_meters > 0 && game->mini_only == 0
