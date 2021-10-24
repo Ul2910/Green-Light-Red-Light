@@ -105,6 +105,7 @@ typedef struct s_game
 	int				end_or_start;
 	t_stop_game 	stop_game;
 	t_balance_game	balance_game;
+	int				minigame_start[3];
 }
 t_game;
 
